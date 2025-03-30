@@ -1,0 +1,19 @@
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+env/
+
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.packages
+.pub-cache/
+.idea/
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db
