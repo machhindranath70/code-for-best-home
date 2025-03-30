@@ -3,31 +3,17 @@ name: Django CI
 on:
   push:
     paths:
-      - 'backend/**'
+      - 'best_home_location/**'
   pull_request:
     paths:
-      - 'backend/**'
+      - 'best_home_location/**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: backend
-
-    services:
-      postgres:
-        image: postgres:13
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: testdb
-        ports: ['5432:5432']
-        options: >-
-          --health-cmd="pg_isready" 
-          --health-interval=10s 
-          --health-timeout=5s 
-          --health-retries=5
+        working-directory: best_home_location
 
     steps:
       - uses: actions/checkout@v3
@@ -43,7 +29,5 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Django tests
-        env:
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/testdb
         run: |
           python manage.py test

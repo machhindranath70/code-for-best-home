@@ -3,17 +3,17 @@ name: Flutter CI
 on:
   push:
     paths:
-      - 'frontend/**'
+      - 'best_home_flutter_app/**'
   pull_request:
     paths:
-      - 'frontend/**'
+      - 'best_home_flutter_app/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend
+        working-directory: best_home_flutter_app
 
     steps:
       - uses: actions/checkout@v3
